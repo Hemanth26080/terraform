@@ -1,8 +1,14 @@
-resource "aws_instance" "Hemanth-EC3" {
-    ami = var.ami_id
-    instance_type = var.instance_type
+resource "aws_instance" "terraform" {
+    count = length(var.instance)
+    ami = "ami-0220d79f3f480ecf5"
+    instance_type = "t3.micro"
     vpc_security_group_ids = [aws_security_group.Terraform-sg.id]
-    tags = var.ec2_tags
+    tags = {
+        Name = var.instance[count.index]
+        terraform = "true"
+        environment = "dev"
+        project = "terraform"
+    }
 
 }
 
