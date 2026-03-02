@@ -1,0 +1,19 @@
+module "vpc" {
+    source = "../terraform-aws-vpc"
+    vpc_cidr = var.vpc_cidr
+    public_subnet_cidrs = var.public_subnet_cidrs
+    private_subnet_cidrs = var.private_subnet_cidrs
+    database_subnet_cidrs = var.database_subnet_cidrs
+    project_name = var.project_name
+    environment = var.environment
+    vpc_tags = var.vpc_tags
+    igw_tags = var.igw_tags
+    public_subnet_tags = var.public_subnet_tags
+    private_subnet_tags = var.private_subnet_tags
+    database_subnet_tags = var.database_subnet_tags
+    public_route_table_tags = var.public_route_table_tags
+    private_route_table_tags = var.private_route_table_tags
+    database_route_table_tags = var.database_route_table_tags
+    eip_tags = var.eip_tags
+    nat_gateway_tags = var.nat_gateway_tags   
+}
